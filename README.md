@@ -1,1 +1,5 @@
-a wip..
+
+## Writeups
+
+- [CKAD Retrospective](./writeups/ckad-retrospective.md)
+
