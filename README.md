@@ -15,6 +15,10 @@ A sampling of course materials I developed:
 - [PCF developer](https://eitansuez.github.io/pcfdev-asciidoc/)
 - [Spring Cloud Services](https://eitansuez.github.io/scs-2day/)
 
+- [Platform Automation](https://eitansuez.github.io/platform-automation-training/)
+
+- [GemFire Developer](https://www.pluralsight.com/courses/gemfire-developer-pivotal) - requires a pluralsight subscription, co-developed with Mark Secrist
+
 ### Kubernetes
 
 - [How to prepare for the CKA exam](https://kube.academy/courses/how-to-prepare-for-the-cka-exam)
