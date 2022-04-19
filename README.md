@@ -1,10 +1,6 @@
 
-## Writeups
 
-- [CKAD Retrospective](./writeups/ckad-retrospective.md)
-
-
-## Education
+## Technical education materials
 
 A sampling of course materials I developed:
 
@@ -28,3 +24,8 @@ A sampling of course materials I developed:
 
 - [Istio 0 to 60 workshop](https://tetratelabs.github.io/istio-0to60/)
 - [Tetrate tech talks](https://www.youtube.com/playlist?list=PLm51GPKRAmTlOkjWDJBQYtjcc9WPk4E4F)
+
+
+## Writeups
+
+- [CKAD Retrospective](./writeups/ckad-retrospective.md)
