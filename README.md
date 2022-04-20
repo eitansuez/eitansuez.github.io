@@ -23,7 +23,7 @@ A sampling of course materials I developed:
 ### Service Mesh
 
 - [Istio 0 to 60 workshop](https://tetratelabs.github.io/istio-0to60/)
-- [Tetrate tech talks](https://www.youtube.com/playlist?list=PLm51GPKRAmTlOkjWDJBQYtjcc9WPk4E4F)
+- [Tetrate tech talks](https://tetratelabs.github.io/tetrate-tech-talks/)
 
 
 ## Writeups
