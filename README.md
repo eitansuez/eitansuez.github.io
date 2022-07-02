@@ -24,6 +24,7 @@ A sampling of course materials I developed:
 
 - [Istio 0 to 60 workshop](https://tetratelabs.github.io/istio-0to60/)
 - [Tetrate tech talks](https://tetratelabs.github.io/tetrate-tech-talks/)
+- [Killer Coda Istio & Envoy Scenarios](https://killercoda.com/eitansuez)
 
 
 ## Writeups
