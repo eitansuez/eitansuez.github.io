@@ -30,3 +30,4 @@ A sampling of course materials I developed:
 ## Writeups
 
 - [CKAD Retrospective](./writeups/ckad-retrospective.md)
+- [Rediscovering past patterns in modern systems architectures](./writeups/istio-di.md)
