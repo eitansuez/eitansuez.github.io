@@ -1,3 +1,5 @@
+2023.09.07
+
 # Rediscovering past patterns in modern systems architectures
 
 We can make an analogy, a comparison between the actors in a monolithic application and the actors in a cloud-native application, as follows:
