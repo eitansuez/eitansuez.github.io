@@ -89,4 +89,26 @@ Et voila.  Istio will now inject only references to `reviews` and `details` serv
 
 Of course we are in a cloud-native world, meaning we can scale each service horizontally, upgrade a service to a new version without incurring downtime, and Istio will make sure to keep the endpoint lists up-to-date for all clients such as the `productpage` workloads, while Envoy will take care of load-balancing requests to upstream services (aka "clusters"), and applying whatever network (and other) policies you define.
 
-By making it mandatory for services to publish their dependencies via `Sidecar` resources, we get a scalable Istio.
+**By making it mandatory for services to publish their dependencies via `Sidecar` resources, we get a scalable Istio.**
+
+## Addendum
+
+We could take this a step further: from all of the published `Sidecar` resources we could generate authorization policies for service owners to review and apply.  For example:  Only the `productpage` service is allowed to call the `details` service:
+
+```yaml
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allowed-details-clients
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+        app: details
+  action: ALLOW
+  rules:
+  - from:
+    - source:
+        principals: ["cluster.local/ns/default/sa/bookinfo-productpage"]
+```
