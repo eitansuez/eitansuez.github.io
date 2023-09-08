@@ -51,7 +51,7 @@ class ProductPage {
 }
 ```
 
-In this application (this system of interacting objects), there may be other services, such as a ratings service, but the ProductPage component (or bean) does not need to be given a reference to it, because it never interacts with it directly.
+In this application (this system of interacting objects), there may be other services, such as a `ratings` service, but the `ProductPage` component (or bean) does not need to be given a reference to it, because it never interacts with it directly.
 
 Conversely, if Spring's `applicationContext` had to give each object a reference to every other object, it would create an untenable geometric growth of object references, most of these references being literally useless.
 
@@ -61,7 +61,7 @@ It's simpler to just let Istio do its default thing, which is to autowire (choic
 
 _This has been a source of criticism of Istio_, stating that Istio does not scale beyond a few services.
 In the monolith the constructor provides a formal means of declaring dependencies.
-Moreover, a developer can hardly publish their objects without declaring its constructor.
+Moreover, a developer can hardly publish their objects without declaring their constructor.
 
 Not so with Istio.  In the cloud-native world, this boils down to having discipline.
 
@@ -87,6 +87,6 @@ spec:
 
 Et voila.  Istio will now inject only references to `reviews` and `details` services into `productpage` workloads.
 
-Of course we are in a cloud-native world, meaning we can scale each service horizontally, upgrade a service to a new version without incurring downtime, and Istio will make sure to keep the endpoint lists up to date for all clients such as the `productpage` workloads, while Envoy will take care of load-balancing requests to upstream services (aka "clusters"), and applying whatever network (and other) policies you define.
+Of course we are in a cloud-native world, meaning we can scale each service horizontally, upgrade a service to a new version without incurring downtime, and Istio will make sure to keep the endpoint lists up-to-date for all clients such as the `productpage` workloads, while Envoy will take care of load-balancing requests to upstream services (aka "clusters"), and applying whatever network (and other) policies you define.
 
-By making it mandatory for services to publish their dependencies via `Sidecar` resources, now we have a scalable Istio.
+By making it mandatory for services to publish their dependencies via `Sidecar` resources, we get a scalable Istio.
