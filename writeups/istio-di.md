@@ -35,17 +35,19 @@ For example:
 ```java
 @Component
 class ProductPage {
-  private final DetailsService details;  // we used to have to annotate these with @Autowired, but that is no longer necessary.
-  private final ReviewService reviews;
+  // We used to have to annotate these with @Autowired, but that is no longer necessary.
+  private final DetailsService detailsService;
+  private final ReviewService reviewsService;
 
-  public ProductPage(DetailsService details, ReviewsService reviews) {
-    this.details = details;
-    this.review = reviews;
+  public ProductPage(DetailsService ds, ReviewsService rs) {
+    this.detailsService = ds;
+    this.reviewsService = rs;
   }
 
-  public ProductDetails getProductDetails() {
-    // delegates to..
-    return details.getProductDetails()
+  public ProductInfo getProductInfo(int productId) {
+    ProductDetails details = detailsService.getProductDetails(productId);
+    ProductReviews reviews = reviewsService.getReviews(productId);
+    return new ProductInfo(productDetails, productReviews);
   }
   ..
 }
