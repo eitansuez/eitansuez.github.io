@@ -47,7 +47,7 @@ class ProductPage {
   public ProductInfo getProductInfo(int productId) {
     ProductDetails details = detailsService.getProductDetails(productId);
     ProductReviews reviews = reviewsService.getReviews(productId);
-    return new ProductInfo(productDetails, productReviews);
+    return new ProductInfo(details, reviews);
   }
   ..
 }
