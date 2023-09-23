@@ -15,7 +15,7 @@ But it's useful to think of a cloud-native application as some kind of "bigger b
 
 In a similar fashion, Istio in a cloud-native app is like dependency injection (DI) in the monolith.
 
-If Istio is like dependency injection (DI), then let's compare how DI works both in Istio and in a monolith with say, the [Spring framework](https://spring.io/).
+If Istio is like dependency injection (DI), then let's compare how DI works both in Istio and in a monolith with say, one of the most popular DI frameworks of all, the [Spring framework](https://spring.io/).
 
 Let us begin with the monolith.
 
@@ -23,6 +23,7 @@ In Spring, you define an object, aka a "bean."
 The class definition has a constructor with arguments.
 It is the job of the application context to furnish each argument (thus freeing the class of the burden of knowing too much about how its environment is constructed).
 This list of arguments is basically the information the application context needs in order to construct the object.
+It's a convention.
 
 From this information, the application context builds a dependency tree.  And so it knows which objects to construct first.  But I digress..
 
@@ -30,7 +31,7 @@ The important thing to note is that an object is only given references to object
 
 Even though the application context may maintain references to hundreds of objects, each object is given references only to its collaborators.
 
-For example:
+For example, we can imagine a `ProductPage` bean, as follows:
 
 ```java
 @Component
@@ -67,7 +68,7 @@ Moreover, a developer can hardly publish their objects without declaring their c
 
 Not so with Istio.  In the cloud-native world, this boils down to having discipline.
 
-Here is the `Sidecar` resource we would create in Istio for the `productpage` service (presumably published in the default namespace):
+Here is the `Sidecar` resource we would create in Istio for the `productpage` service (presumably published in the `default` namespace):
 
 ```yaml
 ---
@@ -93,9 +94,29 @@ Of course we are in a cloud-native world, meaning we can scale each service hori
 
 **By making it mandatory for services to publish their dependencies via `Sidecar` resources, we get a scalable Istio.**
 
+## Thinking a step further
+
+Let's refine our analogy between the monolith and cloud-native worlds.
+
+Roughly, I see a loose mapping between:
+
+| Monolith<br>Java  | Cloud-Native<br>Kubernetes |
+| --------- | ------------ |
+| Class     | Deployment   |
+| Interface | Service      |
+
+The reasons Istio defines the `Sidecar` resource in the first place is because a `Deployment` specification does not include this important extra information we need to answer the question:  _What collaborating services does this deployment talk to?_
+
+If it did, then Istio could just leverage this information and Dependency Injection would be performant out of the box.
+
+I suppose the moral of the story here is that it's worthwhile comparing concepts and constructs that exist in the older and more mature world of monoliths, as an aid to designing our bigger box:  Kubernetes.
+
 ## Addendum
 
-We could take this a step further: from all of the published `Sidecar` resources we could generate authorization policies for service owners to review and apply.  For example:  Only the `productpage` service is allowed to call the `details` service:
+Besides Dependency Injection, another potential, and valuable use of this extra metadata about services is automatic configuration of authorization policies.
+If we _know_ a priori what services talk to each service, we could generate authorization policies that allow *only those services* to reach them.
+
+Assuming this information is specified using `Sidecar` resources, we could generate authorization policies for service owners to review and apply.  For example:  Only the `productpage` service is allowed to call the `details` service:
 
 ```yaml
 ---
