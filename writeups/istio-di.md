@@ -114,7 +114,7 @@ I suppose the moral of the story here is that it's worthwhile comparing concepts
 ## Addendum
 
 Besides Dependency Injection, another potential, and valuable use of this extra metadata about services is automatic configuration of authorization policies.
-If we _know_ a priori what services talk to each service, we could generate authorization policies that allow *only those services* to reach them.
+If we know _a priori_ what services talk to each service, we could generate authorization policies that allow *only those services* to reach them.
 
 Assuming this information is specified using `Sidecar` resources, we could generate authorization policies for service owners to review and apply.  For example:  Only the `productpage` service is allowed to call the `details` service:
 
