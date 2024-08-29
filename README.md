@@ -19,6 +19,7 @@ A sampling of course materials I developed:
 
 - [How to prepare for the CKA exam](https://kube.academy/courses/how-to-prepare-for-the-cka-exam)
 - [CKAD Practice](https://kube.academy/courses/ckad-practice)
+- [Envoy Gateway](https://eitansuez.github.io/eg-webinar/)
 
 ### Service Mesh
 
@@ -26,7 +27,7 @@ A sampling of course materials I developed:
 - [Tetrate tech talks](https://tetratelabs.github.io/tetrate-tech-talks/)
 - [Killer Coda Istio & Envoy Scenarios](https://killercoda.com/eitansuez)
 - [Spring PetClinic on Istio](https://eitansuez.github.io/spring-petclinic-istio/)
-
+- [Troubleshooting Istio](https://tetrateio.github.io/istio-troubleshoot/)
 
 ## Writeups
 
