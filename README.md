@@ -33,3 +33,4 @@ A sampling of course materials I developed:
 
 - [CKAD Retrospective](./writeups/ckad-retrospective.md)
 - [Rediscovering past patterns in modern systems architectures](./writeups/istio-di.md)
+- [Checking out ingress2gateway](./writeups/ingress2gateway.md)
