@@ -2,7 +2,7 @@
 
 # Ingress2gateway
 
-If I had to define a tool such as "ingress2gateway" succinctly, I would say that it's a tool designed to translate Kubernetes Ingress resources to Gateway API resources.
+If I had to define [ingress2gateway](https://github.com/kubernetes-sigs/ingress2gateway/blob/main/README.md) succinctly, I would say that it's a tool designed to translate Kubernetes Ingress resources to Gateway API resources.
 
 It ought to be able take any Ingress resource, and produce the Gateway + HttpRoute equivalent.
 
@@ -60,18 +60,18 @@ The reality is different, in the following ways:
 
 So far, the above differences are perfectly reasonable and logical.
 
-Here is where things get problematic..
+Here is where things get problematic: one must specify a provider.
 
-1. One must specify a provider.  Here is the list of providers currently supported:  
+Here is the list of providers currently supported:  
 
-    ```
-    ingress-nginx
-    istio
-    kong
-    gce
-    openapi3
-    apisix
-    ```
+```
+ingress-nginx
+istio
+kong
+gce
+openapi3
+apisix
+```
 
 The `istio` provider does not translate Ingress objects: it translates Istio's Gateway+VirtualService resources to the K8s Gateway API. That's a nice touch, but not what I'm after at the moment.
 
