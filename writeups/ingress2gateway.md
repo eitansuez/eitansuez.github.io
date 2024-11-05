@@ -73,7 +73,7 @@ openapi3
 apisix
 ```
 
-The `istio` provider does not translate Ingress objects: it translates Istio's Gateway+VirtualService resources to the K8s Gateway API. That's a nice touch, but not what I'm after at the moment.
+The [`istio` provider](https://github.com/kubernetes-sigs/ingress2gateway/blob/main/pkg/i2gw/providers/istio/README.md) does not translate Ingress objects: it translates Istio's Gateway+VirtualService resources to the K8s Gateway API. That's a nice touch, but not what I'm after at the moment.
 
 Presumably each provider implementation goes beyond supporting just a generic Ingress object, and is able to understand implementation-specific annotations (annotations were a way for implementers to support features that were not part of the Ingress resource specification).
 
